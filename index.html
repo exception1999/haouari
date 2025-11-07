@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Samir El‑Haouari — Academic Advisor & Designer</title>
+  <meta name="description" content="Academic advisor & graphic designer in Tangier. Student guidance, visa processes, and persuasive visual design." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+  <!-- Social -->
+  <meta property="og:title" content="Samir El‑Haouari — Academic Advisor & Designer" />
+  <meta property="og:description" content="Student guidance • Visa files • Graphic design" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    /* ======= THEME ======= */
+    :root{
+      --bg: #0a0b10;           /* base */
+      --bg-2:#0f1420;          /* panel */
+      --bg-3:#0c1120;          /* deep */
+      --text:#e9eef7;          /* text */
+      --muted:#9aa3b5;         /* muted */
+      --brand:#7cdbca;         /* teal */
+      --accent:#a78bfa;        /* purple */
+      --hot:#ffb86b;           /* warm */
+      --ring: 0 0 0 3px color-mix(in oklab, var(--brand), transparent 70%);
+      --radius: 18px;
+      --shadow: 0 30px 80px rgba(0,0,0,.45);
+      --maxw: 1180px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7fafc; --bg-2:#ffffff; --bg-3:#eef2ff; --text:#0b1220; --muted:#5f6774; --shadow: 0 30px 80px rgba(15,23,42,.12) }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, color-mix(in oklab, var(--accent), transparent 80%), transparent),
+        radial-gradient(800px 400px at 110% -20%, color-mix(in oklab, var(--brand), transparent 80%), transparent),
+        linear-gradient(180deg, var(--bg), color-mix(in oklab, var(--bg), #000 6%));}
+    a{color:inherit;text-underline-offset:3px}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+    /* ======= FLOATING AURA BACKDROP ======= */
+    .blob{position:fixed; inset:auto auto -120px -120px; width:45vmax; height:45vmax; filter: blur(60px); opacity:.6; pointer-events:none; z-index:-1;
+      background: conic-gradient(from 180deg at 50% 50%, color-mix(in oklab,var(--brand),transparent 30%), color-mix(in oklab,var(--accent),transparent 50%), color-mix(in oklab,var(--hot),transparent 40%), color-mix(in oklab,var(--brand),transparent 30%));
+      animation: blob 18s linear infinite}
+    .blob.b2{inset: -140px -140px auto auto; width:38vmax; height:38vmax; animation-duration: 22s; opacity:.45}
+    @keyframes blob{0%{transform: translate3d(0,0,0) rotate(0deg)}50%{transform: translate3d(6%, -4%, 0) rotate(180deg)}100%{transform: translate3d(0,0,0) rotate(360deg)}}
+    @media (prefers-reduced-motion: reduce){ .blob{display:none} }
+
+    /* ======= NAVBAR ======= */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter: blur(12px) saturate(1.1); background: color-mix(in oklab, var(--bg), transparent 55%);
+      border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 70%)}
+    .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:12px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:900;letter-spacing:.2px}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--brand);box-shadow:0 0 20px color-mix(in oklab,var(--brand),transparent 40%)}
+    .links{display:flex;gap:18px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.55rem;padding:.7rem 1rem;border-radius:999px;border:1px solid color-mix(in oklab,var(--brand),transparent 60%);
+      background:linear-gradient(180deg,color-mix(in oklab,var(--brand),transparent 85%),transparent);font-weight:800;text-decoration:none;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.secondary{border-color:color-mix(in oklab,var(--muted),transparent 60%);background:linear-gradient(180deg,color-mix(in oklab,var(--bg-2),transparent 0%),transparent)}
+    .theme{cursor:pointer;border:1px solid color-mix(in oklab,var(--muted),transparent 60%);border-radius:10px;padding:.45rem .6rem;background:color-mix(in oklab,var(--bg-2),transparent 0%)}
+
+    /* ======= HERO ======= */
+    .hero{display:grid;grid-template-columns:120px 1fr;gap:22px;padding:60px 24px 38px;align-items:center}
+    .avatar{width:120px;aspect-ratio:1/1;border-radius:24px;background:radial-gradient(circle at 70% 30%, color-mix(in oklab,var(--brand),transparent 10%), transparent 40%),var(--bg-3);
+      display:grid;place-items:center;overflow:hidden;border:1px solid color-mix(in oklab,var(--brand),transparent 70%)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    h1{font-size:clamp(1.8rem,2.2vw + 1rem,3.2rem);line-height:1.12;margin:0}
+    .subtitle{color:var(--muted);margin-top:.4rem}
+    .kpis{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .pill{display:inline-block;padding:.28rem .6rem;border:1px solid color-mix(in oklab,var(--muted),transparent 50%);border-radius:999px;font-size:.92rem}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+
+    /* ======= SECTIONS ======= */
+    section{margin:26px 0 46px}
+    h2{font-size:clamp(1.2rem,.8vw + 1rem,1.6rem)}
+    .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .card{grid-column:span 12;padding:20px;background:linear-gradient(180deg,color-mix(in oklab,var(--bg-2),transparent 0%),color-mix(in oklab,var(--bg-2),transparent 6%));
+      border:1px solid color-mix(in oklab,var(--muted),transparent 70%);border-radius:var(--radius);box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .card::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,color-mix(in oklab,var(--brand),transparent 60%),transparent,color-mix(in oklab,var(--accent),transparent 65%));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+    .meta{color:var(--muted);font-size:.95rem}
+
+    @media (min-width:860px){
+      .card.span-6{grid-column:span 6}
+      .card.span-4{grid-column:span 4}
+      .hero{grid-template-columns:160px 1fr}
+      .avatar{width:160px}
+    }
+
+    /* ======= TIMELINE ======= */
+    .timeline{position:relative;padding-left:20px}
+    .timeline::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;background:color-mix(in oklab,var(--muted),transparent 55%)}
+    .t{position:relative;margin:14px 0;padding-left:16px}
+    .t::before{content:"";position:absolute;left:-4px;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px color-mix(in oklab,var(--brand),transparent 80%)}
+
+    /* ======= PROJECT HOVERS ======= */
+    .tilt{transform-style:preserve-3d;transition:transform .2s ease}
+    .tilt:hover{transform: perspective(800px) rotateX(4deg) rotateY(-4deg)}
+
+    /* ======= CONTACT ======= */
+    .contact-form{display:grid;gap:12px;grid-template-columns:repeat(12,1fr)}
+    .control{grid-column:span 12}
+    @media (min-width:680px){ .half{grid-column:span 6} }
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid color-mix(in oklab,var(--muted),transparent 50%);background:var(--bg-2);color:var(--text)}
+    input:focus-visible,textarea:focus-visible{outline:var(--ring)}
+
+    /* ======= FOOTER ======= */
+    footer{margin:48px 0 24px;color:var(--muted);text-align:center}
+
+    /* ======= REDUCED MOTION ======= */
+    @media (prefers-reduced-motion: reduce){ .tilt:hover{transform:none} }
+
+    /* ======= PRINT ======= */
+    @media print{ .nav,.cta,.btn,footer{display:none!important} body{background:#fff;color:#000} .card{box-shadow:none;border-color:#ddd} }
+  </style>
+</head>
+<body>
+  <div class="blob"></div>
+  <div class="blob b2"></div>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="brand" href="#"><span class="dot"></span> Samir&nbsp;<span style="color:var(--brand)">El‑Haouari</span></a>
+      <div class="links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div style="display:flex; gap:8px; align-items:center">
+        <button id="theme" class="theme" aria-label="Toggle theme">🌓</button>
+        <a class="btn" href="./Samir-El-Haouari-CV.pdf" download>↓ Download CV</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="wrap hero" role="banner">
+    <figure class="avatar" aria-label="Portrait placeholder">
+      <!-- Replace with your photo <img src="/samir.jpg" alt="Samir El‑Haouari portrait" loading="lazy"> -->
+      <svg width="92" height="92" viewBox="0 0 24 24" aria-hidden="true" role="img"><path fill="currentColor" d="M12 12a5 5 0 1 0-5-5a5 5 0 0 0 5 5m0 2c-4.33 0-8 2.17-8 5v1h16v-1c0-2.83-3.67-5-8-5"/></svg>
+    </figure>
+    <div>
+      <h1>Academic Advisor & Graphic Designer</h1>
+      <p class="subtitle">Tangier, Morocco · <a href="mailto:elhaouari.samir09@gmail.com">elhaouari.samir09@gmail.com</a> · 06.80.98.56.19</p>
+      <p>Helping students succeed abroad while crafting persuasive visuals. Over three years across orientation, visa files, and brand assets aligned to real outcomes.</p>
+      <div class="kpis">
+        <span class="pill">Student Guidance</span>
+        <span class="pill">Visa Applications</span>
+        <span class="pill">Brand & Print Design</span>
+        <span class="pill">Business Management</span>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#contact">Let’s collaborate</a>
+        <a class="btn secondary" href="./Samir-El-Haouari-CV.pdf" download>Download CV</a>
+        <a class="btn secondary" id="vcard" download="Samir-El-Haouari.vcf">Save contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="content">
+    <!-- EXPERIENCE -->
+    <section id="experience" aria-labelledby="exp-title">
+      <h2 id="exp-title">Experience</h2>
+      <div class="cards">
+        <article class="card span-6 tilt">
+          <h3>Academic Advisor & Designer — ELITE Post‑Bac</h3>
+          <div class="meta">Tangier‑Tétouan · Oct 2021 – Present</div>
+          <p>Advise students on academic orientation and manage visa application files. Create ads, flyers, and banners to promote services. Collaborate with the team to ensure high‑quality support.</p>
+          <div>
+            <span class="pill">Orientation</span>
+            <span class="pill">Design</span>
+            <span class="pill">Teamwork</span>
+          </div>
+        </article>
+        <article class="card span-6 tilt">
+          <h3>Responsible — ELC Learning Center</h3>
+          <div class="meta">2021 – 2023</div>
+          <p>Managed a language center affiliated with ELITE Post‑Bac. Oversaw daily operations and organized language courses for students.</p>
+          <div>
+            <span class="pill">Operations</span>
+            <span class="pill">Scheduling</span>
+            <span class="pill">Student Success</span>
+          </div>
+        </article>
+        <article class="card span-6 tilt">
+          <h3>Graphic Designer & Educational Advisor — AMOA</h3>
+          <div class="meta">2022</div>
+          <p>Produced promotional materials for academic‑orientation workshops across Morocco and guided students pursuing studies abroad.</p>
+          <div>
+            <span class="pill">Branding</span>
+            <span class="pill">Workshops</span>
+          </div>
+        </article>
+        <article class="card span-6 tilt">
+          <h3>Internships</h3>
+          <div class="timeline">
+            <div class="t"><strong>Renda Insurance, Tetouan</strong> — Document management & customer service (2021)</div>
+            <div class="t"><strong>Dar Dmana Media</strong> — Graphic design & video editing (2021)</div>
+            <div class="t"><strong>Carrefour, Tetouan</strong> — Logistics & customer service (2020)</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="proj-title">
+      <h2 id="proj-title">Projects</h2>
+      <div class="cards">
+        <article class="card span-4 tilt">
+          <h3>Admissions Campaign Kit</h3>
+          <p class="meta">Print & Social • 2024</p>
+          <p>Designed a modular set of banners, flyers, and story assets that simplified intake seasons and improved message consistency.</p>
+        </article>
+        <article class="card span-4 tilt">
+          <h3>Study‑Abroad Playbook</h3>
+          <p class="meta">Process • 2023</p>
+          <p>Standardized steps for orientation and visa file prep, cutting turnaround time and reducing document errors.</p>
+        </article>
+        <article class="card span-4 tilt">
+          <h3>Workshop Branding Pack</h3>
+          <p class="meta">Brand • 2022</p>
+          <p>Created a cohesive identity for nationwide orientation workshops, including templates for promos and slide decks.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+      <div class="cards">
+        <div class="card span-6 tilt">
+          <h3>Core</h3>
+          <p>
+            <span class="pill">Academic Orientation</span>
+            <span class="pill">Graphic Design</span>
+            <span class="pill">Project Management</span>
+            <span class="pill">Customer Relations</span>
+            <span class="pill">Communication</span>
+          </p>
+        </div>
+        <div class="card span-6 tilt">
+          <h3>Business & Tools</h3>
+          <p>
+            <span class="pill">Business Management</span>
+            <span class="pill">Accounting</span>
+            <span class="pill">Computer Tools</span>
+            <span class="pill">Print & Social Assets</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" aria-labelledby="edu-title">
+      <h2 id="edu-title">Education & Certifications</h2>
+      <div class="cards">
+        <div class="card span-12 tilt">
+          <ul>
+            <li><strong>Baccalaureate</strong> — City of Ouazzane (2017)</li>
+            <li><strong>Specialized Technician Diploma, Business Management</strong> — ISTA Ouazzane (2020)</li>
+            <li><strong>Specialized Technician in Computer Graphics</strong> — ISTA Ouazzane (Year 1 completed, 2021)</li>
+            <li><strong>TEFL Certificate</strong> — Teaching English as a Foreign Language</li>
+            <li><strong>Microsoft Certification</strong> — Computer Skills</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <div class="cards">
+        <form class="card span-12" id="contactForm" action="mailto:elhaouari.samir09@gmail.com" method="post" enctype="text/plain" onsubmit="this.querySelector('button').disabled=true">
+          <div class="contact-form">
+            <label class="control half">
+              <span>Name</span>
+              <input required name="name" aria-label="Your name">
+            </label>
+            <label class="control half">
+              <span>Email</span>
+              <input required type="email" name="email" aria-label="Your email">
+            </label>
+            <label class="control">
+              <span>Message</span>
+              <textarea required name="message" rows="4" aria-label="Your message"></textarea>
+            </label>
+          </div>
+          <div style="margin-top:10px; display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+            <button class="btn" type="submit">Send Email</button>
+            <a class="btn secondary" href="./Samir-El-Haouari-CV.pdf" download>Download CV</a>
+            <span class="meta">Or reach me at <a href="mailto:elhaouari.samir09@gmail.com">elhaouari.samir09@gmail.com</a></span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="y"></span> Samir El‑Haouari • Tangier, Morocco • <a href="./Samir-El-Haouari-CV.pdf" download>Download CV</a></p>
+  </footer>
+
+  <script>
+    // Theme toggle with persistence
+    const themeBtn = document.getElementById('theme');
+    const setTheme = t => document.documentElement.dataset.theme = t;
+    (function(){
+      const stored = localStorage.getItem('theme');
+      if(stored){ setTheme(stored); if(stored==='light'){ document.documentElement.style.setProperty('--bg','#f7fafc'); } }
+      themeBtn?.addEventListener('click',()=>{
+        const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+        localStorage.setItem('theme', next); setTheme(next);
+      });
+    })();
+
+    // Save contact (vCard) on the fly
+    (function(){
+      const a = document.getElementById('vcard');
+      if(!a) return;
+      const vcf = `BEGIN:VCARD\nVERSION:3.0\nN:El-Haouari;Samir;;;\nFN:Samir El-Haouari\nTITLE:Academic Advisor & Graphic Designer\nTEL;TYPE=CELL:06.80.98.56.19\nEMAIL;TYPE=INTERNET:elhaouari.samir09@gmail.com\nADR:;;Tangier;;;Morocco;\nURL:https://example.com\nEND:VCARD`;
+      a.href = URL.createObjectURL(new Blob([vcf], {type:'text/vcard'}));
+    })();
+
+    // Subtle scroll-reveal
+    const sr = new IntersectionObserver((els)=>{
+      els.forEach(e=>{
+        if(e.isIntersecting){ e.target.animate([{opacity:0, transform:'translateY(8px)'},{opacity:1, transform:'translateY(0)'}],{duration:450, easing:'ease-out'}); sr.unobserve(e.target); }
+      });
+    },{threshold:.12});
+    document.querySelectorAll('.card').forEach(c=>sr.observe(c));
+
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- SEO Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Samir El-Haouari",
+    "jobTitle":"Academic Advisor & Graphic Designer",
+    "email":"mailto:elhaouari.samir09@gmail.com",
+    "address":{"@type":"PostalAddress","addressLocality":"Tangier","addressCountry":"MA"}
+  }
+  </script>
+</body>
+</html>
